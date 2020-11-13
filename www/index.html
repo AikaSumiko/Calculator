@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.js"></script>
+</head>
+<script>
+	function cal(){
+		var num1 = parseInt(document.getElementById('num').value);
+		var num2 = parseInt(document.getElementById('num2').value);
+		var sign = document.getElementById('method').value;
+
+		if (sign == "-"){
+			var sub = num1 - num2;
+			document.getElementById('result').innerHTML = sub;
+			document.getElementById('operation').innerHTML = num1 + "-" + num2;
+		};
+		if (sign == "/"){
+			var div = num1 / num2;
+			document.getElementById('result').innerHTML = div;
+			document.getElementById('operation').innerHTML = num1 + "/" + num2;
+		};
+		if (sign == "+"){
+			var sum = num1 + num2;
+			document.getElementById('result').innerHTML = sum;
+			document.getElementById('operation').innerHTML = num1 + "+" + num2;
+		};
+		if (sign == "*"){
+			var mul = num1 * num2;
+			document.getElementById('result').innerHTML = mul;
+			document.getElementById('operation').innerHTML = num1 + "*" + num2;
+		};
+	}
+</script>
+<body>
+	<div data-role="page" id="pageone" data-theme="a">
+		<div data-role="header">
+			<h1>Simple Calculator</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pageone" class="ui-btn-active ui-state-persist" data-icon="home">Home</a></li>
+					<li><a href="#pagetwo" data-transition="flow" data-icon="grid">Calculator</a></li>
+					<li><a href="#pagethree" data-transition="flow" data-icon="info">Help</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content">
+			<p>This is a jQuery mobile exercise which provides the
+			user with a calculator for basic mathematical operations.</p>
+		</div>
+		<div data-role="footer">
+			<h2>Homework</h2>
+		</div>
+	</div>
+	<!--Page two-->
+	<div data-role="page" id="pagetwo" data-theme="a">
+		<div data-role="header">
+			<h1>Simple Calculator</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pageone" data-transition="flow" data-icon="home">Home</a></li>
+					<li><a href="#pagetwo" class="ui-btn-active ui-state-persist" data-icon="grid">Calculator</a></li>
+					<li><a href="#pagethree" data-transition="flow" data-icon="info">Help</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content">
+			<form action="#" method="get">
+				<input type="text" data-clear-btn="true" name="number1" id="num">
+				<div class="ui-field-contain">
+					<select name="operator" id="method">
+						<option value="+">+</option>
+						<option value="-">-</option>
+						<option value="*">*</option>
+						<option value="/">/</option>
+					</select>
+				</div>
+				<input type="text" data-clear-btn="true" name="number2" id="num2">
+				<a href="#pagefour" class="ui-btn ui-state-persist" onclick="cal()" data-transition="pop">Calculate</a>
+			</form>
+		</div>
+		<div data-role="footer">
+			<h2>Homework</h2>
+		</div>
+	</div>
+	<!--Page three-->
+	<div data-role="page" id="pagethree" data-theme="a">
+		<div data-role="header">
+			<h1>Simple Calculator</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pageone" data-transition="flow" data-icon="home">Home</a></li>
+					<li><a href="#pagetwo"  data-icon="grid">Calculator</a></li>
+					<li><a href="#pagethree" class="ui-btn-active ui-state-persist" data-transition="flow" data-icon="info">Help</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content">
+			<p>This is the help section and provides basic
+			information about how to use the calculator.</p>
+			<a href="#pagefive" data-transition="flip" class="ui-btn ui-icon-info ui-btn-icon-left" >More Info</a>
+		</div>
+		<div data-role="footer">
+			<h2>Homework</h2>
+		</div>
+	</div>
+	<div data-role="page" data-dialog="true" id="pagefive" data-theme="a">
+		<div data-role="header">
+			<h1>More Info</h1>
+		</div>
+		<div data-role="main" class="ui-content">
+			<p>You have requested more information about the App!</p>
+		</div>
+		<a href="#pagethree" data-transition="flip" class="ui-btn ui-icon-back ui-btn-icon-left" >Dismiss</a>
+	</div>
+	<!--Page four-->
+	<div data-role="page" id="pagefour" data-theme="a">
+		<div data-role="header">
+			<h1>RESULTS</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pageone" data-transition="flow" data-icon="home">Home</a></li>
+					<li><a href="#pagetwo"  data-icon="grid">Calculator</a></li>
+					<li><a href="#pagethree" class="ui-btn-active ui-state-persist" data-transition="flow" data-icon="info">Help</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="main" class="ui-content">
+			<h3>Operation:</h3>
+			<p id="operation"></p>
+			<h3>Results</h3>
+			<p id="result"></p>
+			<a href="#pagetwo" data-transition="flip" class="ui-btn ui-icon-back ui-btn-icon-left" >Back</a>
+		</div>
+		<div data-role="footer">
+			<h2>Homework</h2>
+		</div>
+	</div>
+	<div data-role="page" data-dialog="true" id="pagefive" data-theme="a">
+		<div data-role="header">
+			<h1>More Info</h1>
+		</div>
+		<div data-role="main" class="ui-content">
+			<p>You have requested more information about the App!</p>
+		</div>
+		<a href="#pagethree" data-transition="flip" class="ui-btn ui-icon-back ui-btn-icon-left" >Dismiss</a>
+	</div>
+</body>
+</html>
